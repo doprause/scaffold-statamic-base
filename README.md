@@ -2,9 +2,9 @@
 
 Provides basic scaffolding for a Statamic project based on flat files.
 
-PHP: `8.4.x`
-Composer: `2.8.x`
-Node: `22.14.x`
+- PHP: `8.4.x`
+- Composer: `2.8.x`
+- Node: `22.14.x`
 
 ## Prerequisits
 
@@ -13,6 +13,9 @@ To copy this repository into a new project, the following packages must be insta
 ```sh
 sudo apt install nodejs
 ```
+
+> [!TIP]
+> When developing on Windows with WSL2, read how to [setup WSL2 and Docker](https://github.com/doprause/docker-sysbox-wsl2)
 
 ## Usage
 
