@@ -2,9 +2,6 @@ FROM nestybox/ubuntu-jammy-systemd-docker:latest
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# Set working directory
-WORKDIR /workspaces/assetkraken
-
 # Install PHP 8.4 and required extensions
 RUN apt-get update && apt-get install -y \
     software-properties-common \

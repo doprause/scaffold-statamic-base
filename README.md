@@ -18,25 +18,57 @@ sudo apt install nodejs
 
 ### Create project folder with scaffolding
 
-The following commands create a new project with the scaffolding.
+The following command clones this repository to a sub-folder `mysite`.
 
 ```sh
-degit doprause/scaffold-statamic-base new-project
+degit doprause/scaffold-statamic-base mysite
 ```
 
-Open the devcontainer:
+Open the project in VS Code by navigating to the sub-folder and running `code .`:
 
 ```sh
-cd new-project
+cd mysite
 code .
 ```
 
-To open the devcontainer from VS Code open command palette with `Ctrl+Shit+P` and search for `Dev Containers: Rebuild Container Without Cache`.
+To start the devcontainer from VS Code open command palette with `Ctrl+Shit+P` and search for `Dev Containers: Rebuild Container Without Cache`.
+
+The working directory in the devcontainer is `/workspace`. So within the devcontainer, if yo open a terminal, you find yourself in the `/workspace` directory.
 
 ### Create Statamic project
 
-Create a Statamic project with:
+> [!TIP]
+> The following commands must be executed from in the `/workspace` directory from within the devcontainer.
+
+#### Create a Statamic project with:
 
 ```sh
-statamic new .
+statamic new mysite
+```
+
+This creates a new Statamic project within a sub-folder called `mysite`. Since we want to have the Statamic files directly in the workspace directory, we move them and delete the sub-folder `mysite` afterwards.
+
+```sh
+cp -r mysite/. . && rm -rf mysite
+```
+
+#### Installing Laravel Sail
+
+To install Laravel Sail run the following commands:
+
+```sh
+composer require laravel/sail --dev
+php artisan sail:install --with=none
+```
+
+Starting Laravel Sail in detached (`-d`) mode:
+
+```sh
+sail up -d
+```
+
+Stopping Laravel Sail:
+
+```sh
+sail stop
 ```

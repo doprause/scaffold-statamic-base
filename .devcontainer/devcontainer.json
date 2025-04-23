@@ -33,10 +33,11 @@
     }
   },
   "postCreateCommand": {
+    "path": "echo \"export PATH=\"~/.config/composer/vendor/bin/\":$PATH\" >> ~/.bashrc && . ~/.bashrc",
     "sail": "echo \"alias sail='./vendor/bin/sail'\" >> ~/.bashrc",
-    "statamic": "composer global require statamic/cli && echo \"export PATH=\"~/.config/composer/vendor/bin/\":$PATH\" >> ~/.bashrc && . ~/.bashrc"
+    "statamic": "composer global require statamic/cli"
   },
-  "workspaceMount": "source=${localWorkspaceFolder},target=/var/www/html,type=bind,consistency=cached",
-  "workspaceFolder": "/var/www/html",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
   "remoteUser": "admin"
 }
